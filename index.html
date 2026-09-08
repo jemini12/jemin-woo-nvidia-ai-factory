@@ -18,7 +18,7 @@ Jemin Woo Portfolio — 단일 HTML / 자체 호스팅용
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#ffffff">
 <title>Jemin Woo — Projects & Skills</title>
-<meta name="description" content="Jemin Woo. Hands-on infrastructure engineering across GPU clusters, Kubernetes platforms, and cloud. Selected projects and skills.">
+<meta name="description" content="Jemin Woo. Hands-on infrastructure engineering across GPU clusters, Kubernetes platforms, and cloud. Featured projects and skills.">
 <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiNmZmYiLz48dGV4dCB4PSI4IiB5PSI0MyIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjMzIiBmaWxsPSIjMTc4NDQxIj5qdzwvdGV4dD48L3N2Zz4K" type="image/svg+xml">
 <!-- 1. 디자인: 색상, 글자 크기, 여백을 아래 CSS에서 수정하세요. -->
 <style>
@@ -151,6 +151,16 @@ h1 span {
   border-radius:6px;
   overflow:hidden;
 }
+.intro-highlights-title {
+  font-size:24px;
+  line-height:1.4;
+  font-weight:600;
+  letter-spacing:-.02em;
+  margin-top:30px;
+}
+.intro-highlights-title span {
+  color:var(--green);
+}
 .intro-highlights li {
   min-height:138px;
   padding:20px;
@@ -161,6 +171,7 @@ h1 span {
   margin-bottom:4px;
   font-size:16px;
   line-height:1.45;
+  color:var(--green);
 }
 .intro-highlights p {
   font-size:15px;
@@ -746,13 +757,14 @@ dialog::backdrop {
 </summary>
 <div class="motivation-copy">
 <p>I’m applying for the <strong>NVIDIA AI Factory Solutions Architect</strong> role because I want to use my infrastructure engineering experience to help customers build and succeed with their AI factories.</p>
-<p>Having solved technical problems, hands-on across servers, Kubernetes, cloud infrastructure, and GPU clusters, and led projects across teams and vendors, I want to combine these strengths to help customers <strong>to make a meaningful impact with NVIDIA technology.</strong></strong></p>
+<p>I have solved technical problems hands-on across servers, Kubernetes, cloud infrastructure, and GPU clusters, and led projects across teams and vendors.<strong> I want to combine these strengths to help customers make a meaningful impact with NVIDIA technology.</strong></p>
 </div>
 </details>
+<h2 class="intro-highlights-title">Highlighted Experience<span>.</span></h2>
 <ul class="intro-highlights" aria-label="Experience highlights">
 <li>
 <strong>GPU clusters: InfiniBand &amp; RoCEv2</strong>
-<p>Supported an InfiniBand-based Korean government GPU cluster, using Slurm for workload scheduling and cluster validation. Served as technical PM for a NVIDIA H200 RoCEv2 cluster, coordinating server, networking, and vendor teams.</p>
+<p>Supported an InfiniBand-based Korean government GPU cluster, using Slurm for workload scheduling and cluster validation. Served as technical PM for an NVIDIA H200 RoCEv2 cluster, coordinating server, networking, and vendor teams.</p>
 </li>
 <li>
 <strong>AWS GPUaaS migration</strong>
@@ -764,14 +776,14 @@ dialog::backdrop {
 </li>
 <li>
 <strong>Elasticsearch PaaS on Kubernetes</strong>
-<p>Built a Kubernetes/ECK operator based PaaS that automated deployment and failure recovery for 200 Elasticsearch clusters, saving more than two person-months of engineering effort.</p>
+<p>Built a Kubernetes/ECK operator-based PaaS that automated deployment and failure recovery for 200 Elasticsearch clusters, saving more than two person-months of engineering effort.</p>
 </li>
 </ul>
 </div>
 </section>
 <section id="projects-section" class="projects-section" aria-labelledby="projects-title">
 <div class="section-head">
-<h2 id="projects-title">Selected projects<span>.</span>
+<h2 id="projects-title">Featured projects<span>.</span>
 </h2>
 <span class="section-index" id="project-count" aria-live="polite">01 — 04</span>
 </div>
@@ -795,6 +807,7 @@ dialog::backdrop {
 <li>RTX PRO 6000</li>
 <li>MLPerf Training & Inference</li>
 <li>InfiniBand / RoCEv2</li>
+</ul>
 </div>
 <div class="skill-group">
 <span class="skill-index">02</span>
@@ -1109,11 +1122,11 @@ let expanded=false,lastTrigger=null;
 const grid=document.querySelector('#projects'),more=document.querySelector('#show-more'),dialog=document.querySelector('#project-dialog');
 function renderProjects(){
  const visible=expanded?chronological:selected;
- grid.innerHTML=visible.map(p=>`<button class="project-row" data-project="${p.id}" aria-label="Read project: ${p.title}"><span class="project-date">${p.year}</span><span class="project-main"><span class="project-title">${p.title}</span><span class="project-impact">${impactLabels[p.id]||p.impact}</span><span class="project-tags">${p.tags.join(' · ')}</span></span><span class="project-arrow" aria-hidden="true">↗</span></button>`).join('');
+ grid.innerHTML=visible.map(p=>`<button class="project-row" data-project="${p.id}" aria-label="Read project: ${p.title}"><span class="project-date">${p.date}</span><span class="project-main"><span class="project-title">${p.title}</span><span class="project-impact">${impactLabels[p.id]||p.impact}</span><span class="project-tags">${p.tags.join(' · ')}</span></span><span class="project-arrow" aria-hidden="true">↗</span></button>`).join('');
  document.querySelector('#project-count').textContent=`${visible.length} projects`;
- document.querySelector('#projects-title').innerHTML=expanded?'Project history<span>.</span>':'Selected projects<span>.</span>';
+ document.querySelector('#projects-title').innerHTML=expanded?'Project history<span>.</span>':'Featured projects<span>.</span>';
  more.setAttribute('aria-expanded',String(expanded));
- more.innerHTML=expanded?'Show selected projects <b aria-hidden="true">−</b>':`View all ${projects.length} projects <b aria-hidden="true">+</b>`;
+ more.innerHTML=expanded?'Show featured projects <b aria-hidden="true">−</b>':`View all ${projects.length} projects <b aria-hidden="true">+</b>`;
 }
 more.addEventListener('click',()=>{expanded=!expanded;renderProjects();document.querySelector('#projects-section').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});});
 function openProject(id,trigger){const p=projects.find(p=>p.id===id);if(!p)return;lastTrigger=trigger;document.querySelector('#dialog-content').innerHTML=`<div class="dialog-date">${p.date} · Kakao Corp.</div><h2 id="dialog-title">${p.title}</h2><div class="dialog-impact">${impactLabels[p.id]||p.impact}</div><div class="detail-section"><h3>THE PROBLEM</h3><p>${p.problem}</p></div><div class="detail-section"><h3>MY CONTRIBUTION</h3><ul>${p.role.map(r=>`<li>${r}</li>`).join('')}</ul></div><div class="detail-section"><h3>THE OUTCOME</h3><p>${p.result}</p></div><div class="dialog-tags">${p.tags.join(' · ')}</div>`;dialog.showModal();dialog.scrollTop=0;document.body.style.overflow='hidden';}
