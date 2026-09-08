@@ -323,6 +323,38 @@ h2 span {
 .skills-section {
   padding:64px 0;
 }
+.resources-section {
+  padding:0 0 64px;
+}
+.resource-list {
+  border-top:1px solid var(--line);
+}
+.resource-link {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  padding:20px 12px 20px 0;
+  border-bottom:1px solid var(--line);
+  font-size:18px;
+  font-weight:600;
+}
+.resource-link:hover {
+  color:var(--green);
+  background:#f3f9f4;
+}
+.resource-description {
+  display:block;
+  margin-top:4px;
+  color:var(--muted);
+  font-size:15px;
+  font-weight:400;
+}
+.resource-arrow {
+  color:var(--green);
+  font-size:24px;
+  flex-shrink:0;
+}
 .skills-grid {
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
@@ -634,6 +666,9 @@ dialog::backdrop {
   .skills-section {
     padding:44px 0;
   }
+  .resources-section {
+    padding-bottom:44px;
+  }
   .skills-grid {
     grid-template-columns:1fr;
     gap:22px;
@@ -783,10 +818,24 @@ dialog::backdrop {
 </div>
 </div>
 </section>
+<section id="resources" class="resources-section" aria-labelledby="resources-title">
+<div class="section-head">
+<h2 id="resources-title">Resources<span>.</span>
+</h2>
+</div>
+<div class="resource-list">
+<a class="resource-link" href="docs/Jemin_Woo_Resume.pdf" target="_blank" rel="noopener noreferrer">
+<span>Resume<span class="resource-description">Professional resume in PDF format</span></span>
+<span class="resource-arrow" aria-hidden="true">↗</span>
+</a>
+<a class="resource-link" href="docs/Jemin_Woo_Professional_Experience_2026_EN.pdf" target="_blank" rel="noopener noreferrer">
+<span>Professional Experience<span class="resource-description">Detailed project and experience history</span></span>
+<span class="resource-arrow" aria-hidden="true">↗</span>
+</a>
+</div>
+</section>
 </main>
 <footer class="wrap footer">
-<a class="footer-name" href="mailto:jemini12@naver.com">Jemin Woo <span aria-hidden="true">↗</span>
-</a>
 <div class="footer-links">
 <a href="https://www.linkedin.com/in/jemin-woo" target="_blank" rel="noopener noreferrer" class="contact">LinkedIn ↗</a>
 </div>
